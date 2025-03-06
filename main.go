@@ -3,11 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(sum(10)(20))
+	fmt.Println(sum(10, 2, 5))
+	fmt.Println(sum(111, 12, 35))
+	fmt.Println(sum(13, 4, 88))
+	fmt.Println(sum(-1, 2, 44))
+	fmt.Println(sum(24, 7, 78))
 }
 
-func sum(a int) func(int) int {
-	return func(b int) int {
-		return a + b
+func sum(numbers ...int) int {
+	var out int
+
+	for _, n := range numbers {
+		out += n
 	}
+	return out
 }
