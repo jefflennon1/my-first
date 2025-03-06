@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(twoParams(10, 5))
+	fmt.Println(sum(10)(20))
 }
 
-func twoParams(a, b int) (n1, n2 int) {
-	n1 = a + b
-	n2 = a * b
-	return
+func sum(a int) func(int) int {
+	return func(b int) int {
+		return a + b
+	}
 }
